@@ -474,8 +474,9 @@
                 self::EDUCATION => array(
                     array(
                         "name" => "Master of Information Technology",
-                        "gpa" => 3.39,
+                        "university" => "Thai-Nichi Institute of Technology",
                         "research" => "An Analysis of Electronic Circuits Diagram Using Computer Vision Techniques",
+                        "gpa" => 3.39,
                         "description" => array(
                             "Learned about computer networking as admin config.",
                             "Learned about develop and create AI.",
@@ -488,6 +489,7 @@
                     array(
                         "name" => "Bachelor of Electronic and Telecommunication Engineering",
                         "research" => "TV digital antenna",
+                        "university" => "Rajamangala University of Technology Isan Khon Kaen Campus",
                         "gpa" => 2.79,
                         "description" => array(
                             "Learned about basic engineering.",

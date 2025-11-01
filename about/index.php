@@ -100,6 +100,7 @@
                     array: array_map(
                         callback: fn($getData) => (
                             ("<h2>".($getData["name"])."</h2>").
+                            ("<div appProp=\"education-detail-university\">".($getData["university"])."</div>").
                             ("<div appProp=\"education-detail-gpa\">GPA: ".($getData["gpa"])."</div>").
                             ("<div appProp=\"education-detail-research\">Research: ".($getData["research"])."</div>").
                             (

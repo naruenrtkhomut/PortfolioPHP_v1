@@ -119,10 +119,13 @@ section[appProp="education"] {
         }
         & h2 {
             font-size: 4cqh;
-            margin-top: 50px;
+            margin-top: 40px;
+        }
+        & div[appProp="education-detail-university"] {
+            font-size: 2cqh;
         }
         & div[appProp="education-detail-gpa"] {
-            font-size: 3cqh;
+            font-size: 2.5cqh;
         }
         & div[appProp="education-detail-research"] {
             font-size: 2.5cqh;
