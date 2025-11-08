@@ -28,7 +28,7 @@
             echo join(
                 separator: "",
                 array: array_map(
-                    callback: fn($getData) => '<img src="/lib/image/contact/'.($getData->svg ?? "").'" height="100vh" title="'.($getData->title ?? "default").'" '.(($getData->link ?? null) !== null ? 'onClick="window.location.assign(\''.($getData->link).'\')"' : '').'/>',
+                    callback: fn($getData) => '<img src="/lib/image/contact/'.($getData->svg ?? "").'" height="100vh" title="'.($getData->title ?? "default").'" '.(($getData->link ?? null) !== null ? 'onClick="window.open(\''.($getData->link).'\', \'_blank\')"' : '').'/>',
                     array: array_filter(
                         callback: fn($getFilter) => in_array(needle: $getFilter->name ?? null, haystack: array("GMAIL", "GITHUB", "LINKEDIN")),
                         array: Application_CONTROLLER::GetContact()

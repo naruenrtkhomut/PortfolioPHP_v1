@@ -36,8 +36,7 @@
         <div class="d-flex flex-column flex-xxl-row justify-content-xxl-between px-md-5 mt-3">
             <div class="d-flex flex-column flex-xxl-row justify-content-start gap-2">
                 <button class="btn btn-lg btn-danger my-auto" onclick="window.location.assign('/about')">Learn More About Me</button>
-                <button class="btn btn-lg btn-outline-light my-auto">Resume</button>
-                <button class="btn btn-lg btn-outline-secondary my-auto">Source code</button>
+                <button class="btn btn-lg btn-outline-secondary my-auto" onclick="window.open('https://github.com/naruenrtkhomut/PortfolioPHP_v1', '_blank');">Source code</button>
             </div>
             <div class="d-flex mt-2 mt-md-0 gap-2 justify-content-center justify-content-xxl-start">
                 <?php Index_VIEW::GetBriefContact(); ?>

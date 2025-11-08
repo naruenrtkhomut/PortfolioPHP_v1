@@ -97,6 +97,24 @@ div[appProp="copy-right"] {
             }
         }
     }
+    section[app="about-05"] {
+        min-height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-template-rows: 1fr;
+        & div[app="about-05-image"] {
+            background-image: url("/lib/image/page/about-03.png");
+            background-repeat: no-repeat;
+            background-size: cover cover;
+            background-position: center left;
+        }
+        & div {
+            & h1[app="about-05-name"] {
+                font-size: 6vw;
+            }
+        }
+    }
 }
 @media only screen and (max-width: 1023px) {
     section[app="about-01"] {

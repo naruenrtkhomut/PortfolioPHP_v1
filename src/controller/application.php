@@ -84,5 +84,19 @@
         public static function GetCertification(): array {
             return Personal_MODEL::CERTIFICATION->Value();
         }
+        /**
+         * getting education
+         * @return array
+         */
+        public static function GetEducation(): array {
+            return Personal_MODEL::EDUCATION->Value();
+        }
+        /**
+         * getting soft skill
+         * @return array
+         */
+        public static function GetSoftSkill(): array {
+            return Personal_MODEL::SOFT_SKILL->Value();
+        }
     }
 ?>

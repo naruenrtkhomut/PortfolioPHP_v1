@@ -45,6 +45,13 @@
         </div>
         <div app="about-02-image"></div>
     </section>
+    <section app="about-05">
+        <div app="about-05-image"></div>
+        <div>
+            <h1 app="about-05-name">Educations</h1>
+            <?php About_VIEW::GetEducation(); ?>
+        </div>
+    </section>
     <section app="about-03">
         <h1 app="about-03-name" class="mb-3">Projects</h1>
         <div app="about-031">

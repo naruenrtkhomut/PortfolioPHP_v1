@@ -144,5 +144,80 @@
                 ).
                 '</div>';
         }
+        /**
+         * getting education
+         * @return void
+         */
+        public static function GetEducation(): void {
+            echo join(
+                separator: "",
+                array: array_map(
+                    callback: fn($getData) => (
+                        '<div class="mt-5">'.
+                        '<h1 class="display-6">'.($getData->degree ?? "").' of</h1>'.
+                        '<h1 class="display-4 fw-bolder">'.($getData->major ?? "").'</h1>'.
+                        '<h1 class="display-6">'.($getData->university ?? "").'</h1>'.
+                        '<h1 class="display-6">'.($getData->gpa ?? "").'</h1>'.
+                        '<p class="fs-3">'.($getData->research).'</p>'.
+                        '<button class="btn btn-lg btn-outline-light w-50" data-bs-toggle="modal" data-bs-target="#education-modal-'.($getData->id ?? "").'">View more</button>'.
+                        '</div>'.
+                        '<div class="modal fade" tabindex="-1" id="education-modal-'.($getData->id ?? "").'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">'.($getData->degree ?? "").' of '.($getData->major ?? "").'</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h1>Description of the study.</h1>
+                                <ul>
+                                '.
+                                join(
+                                    separator: "",
+                                    array: array_map(
+                                        callback: fn($getDes) => '<li>'.($getDes).'</li>',
+                                        array: $getData->descriptions ?? array()
+                                    )
+                                ).
+                                '
+                                </ul>
+                                <table class="table table-bordered table-hover">
+                                    <thead class="table-danger">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Unit</th>
+                                            <th>Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    '.
+                                    join(
+                                        separator: "",
+                                        array: array_map(
+                                            callback: fn($getE) => (
+                                                '<tr>'.
+                                                '<td>'.($getE->name ?? "").'</td>'.
+                                                '<td>'.($getE->unit ?? "").'</td>'.
+                                                '<td>'.($getE->grade ?? "").'</td>'.
+                                                '</tr>'
+                                            ),
+                                            array: $getData->courses ?? array()
+                                        )
+                                    ).
+                                    '
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">OK</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>'
+                    ),
+                    array: Application_CONTROLLER::GetEducation()
+                )
+            );
+        }
     }
 ?>

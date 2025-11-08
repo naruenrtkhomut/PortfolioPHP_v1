@@ -106,8 +106,7 @@
                     "link" => array(
                         new HtmlHeader_MODEL(name: "Home", link: "/"),
                         new HtmlHeader_MODEL(name: "About", link: "/about"),
-                        new HtmlHeader_MODEL(name: "Skill", link: "/skill"),
-                        new HtmlHeader_MODEL(name: "Contact", link: "/contact"),
+                        new HtmlHeader_MODEL(name: "Skill", link: "/skill")
                     )
                 )
             };
@@ -129,6 +128,7 @@
         case SKILL;   
         case PROJECT_BRIEF; 
         case CERTIFICATION;
+        case SOFT_SKILL;
         /**
          * getting name of personal model
          * @return string
@@ -459,6 +459,7 @@
                 ),
                 self::EDUCATION => array(
                     new PersonalEducation_MODEL(
+                        id: "A",
                         degree: "Master",
                         major: "Information Technology",
                         university: "Thai-Nichi Institute of Technology",
@@ -548,6 +549,7 @@
                         )
                     ),
                     new PersonalEducation_MODEL(
+                        id: "B",
                         degree: "Bachelor",
                         major: "Electronic and Telecommunication Engineering",
                         university: "Rajamangala University of Technology Isan Khon Kaen Campus",
@@ -1190,6 +1192,14 @@
                         image: "18.png"
                     )
                 ),
+                self::SOFT_SKILL => array(
+                    "Analytical thinking and innovation.",
+                    "Complex problem-solving.",
+                    "Critical thinking and analysis.",
+                    "Creativity, originality and initiative.",
+                    "Active learning and learning strategies.",
+                    "Resilience, stress tolerance and flexibility."
+                ),
             };
         }
     }
@@ -1487,6 +1497,11 @@
      * @type class
      */
     class PersonalEducation_MODEL {
+        /** 
+         * id
+         * @return ?string $id
+         */
+        public ?string $id;
         /**
          * degree
          * @return ?string $degree
@@ -1531,8 +1546,9 @@
          * @param ?array $descriptions
          * @param ?array $courses
          */
-        public function __construct(?string $degree,  ?string $major, ?string $university, ?float $gpa, ?string $research, ?array $descriptions, ?array $courses)
+        public function __construct(?string $id, ?string $degree,  ?string $major, ?string $university, ?float $gpa, ?string $research, ?array $descriptions, ?array $courses)
         {
+            $this->id = $id;
             $this->degree = $degree;
             $this->major = $major;
             $this->university = $university;

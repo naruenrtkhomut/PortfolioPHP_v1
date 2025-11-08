@@ -1,0 +1,43 @@
+body {
+    width: 100%;
+    background-color: var(--body-bg-color);
+    color: var(--body-fg-color);
+}
+div[appProp="copy-right"] {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+    section[app="skill-01"] {
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-template-rows: 1fr;
+        & h1[app="skill-012-name"] {
+            font-size: 6vw;
+        }
+        & div[app="skill-012"] {
+            & li {
+                font-size: 3vw;
+            }
+        }
+    }
+    section[app="skill-02"] {
+        width: 100%;
+        min-height: 100vh;
+        & h1[app="skill-02-name"] {
+            font-size: 8vw;
+        }
+    }
+}
+@media only screen and (max-width: 1023px) {
+    h1[app="skill-012-name"] {
+        font-size: 20vw;
+    }
+    h1[app="skill-02-name"] {
+        font-size: 20vw;
+    }
+}
