@@ -1,0 +1,121 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--body-bg-color);
+    color: var(--body-fg-color);
+}
+div[appProp="copy-right"] {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+    section[app="about-01"] {
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        & div[app="about-01-image"] {
+            background-image: url("/lib/image/page/about-01.png");
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+        }
+        & h1[app="about-01-workname"] {
+            font-size: 5vw;
+        }
+        & p[app="about-01-eyear"] {
+            font-size: 2vw;
+        }
+        & ul[app="about-01-description"] {
+            font-size: 1.2vw;
+        }
+    }
+    section[app="about-02"] {
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        & div[app="about-02-image"] {
+            background-image: url("/lib/image/page/about-02.png");
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+        }
+        & h1[app="about-02-name"] {
+            font-size: 6vw;
+        }
+        & div[app="about-02-workname"] {
+            margin-top: 20px;
+            font-size: 2vw;
+        }
+        & div[app="about-02-date"] {
+            font-size: 1.2vw;
+        }
+        & div[app="about-02-company"] {
+            font-size: 1.5vw;
+        }
+    }
+    section[app="about-03"] {
+        max-width: 98%;
+        min-height: 100vh;
+        margin-left: 1%;
+        & h1[app="about-03-name"]{
+            font-size: 6vw;
+        }
+        & div[app="about-031"] {
+            display: grid;
+            grid-template-columns: repeat(3, 32%);
+            justify-content: center;
+            gap: 20px;
+            & div[app="about-0311"] {
+                & p {
+                    text-align: center;
+                }
+            }
+            & img {
+                height: 5vh;
+            }
+        }
+    }
+    section[app="about-04"] {
+        min-height: 100vh;
+        width: 98%;
+        margin-left: 1%;
+        & h1[app="about-04-name"] {
+            font-size: 6vw;
+        }
+        & div[app="about-041"] {
+            display: grid;
+            grid-template-columns: repeat(3, 32%);
+            gap: 20px;
+            & p {
+                width: 100%;
+                font-size: 2vw;
+                text-align: center;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1023px) {
+    section[app="about-01"] {
+        & img {
+            height: 10vh;
+            margin-bottom: 20px;
+        }
+    }
+    section[app="about-02"] {
+        & h1[app="about-02-name"] {
+            font-size: 5vw;
+        }
+    }
+    section[app="about-03"] {
+        & p {
+            text-align: center;
+        }
+        & img {
+            height: 3vh;
+        }
+    }
+}

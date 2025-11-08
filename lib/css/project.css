@@ -1,0 +1,13 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--body-bg-color-project);
+    color: var(--body-fg-color-project);
+}
+div[appProp="copy-right"] {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+@media only screen and (min-width: 1024px) {}
+@media only screen and (max-width: 1023px) {}
