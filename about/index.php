@@ -63,6 +63,9 @@
         <?php About_VIEW::GetCertifications(); ?>
         <div style="height: 40px;"></div>
     </section>
+    <?php
+        About_VIEW::GetProjectModal();
+    ?>
     <!-- copy right -->
     <div appProp="copy-right">© 2025 Naruenat Komoot</div>
 </body>

@@ -56,9 +56,9 @@
                         callback: fn($getData) => (
                             '<div app="about-02-workname">'.($getData->name).'</div>'.
                             '<div app="about-02-date">'.(
-                                ($getData->startDate->format("Y-m-d") === new DateTime(datetime: 'now')->format('Y-m-d') ? 'Present' : $getData->startDate->format("Y-m-d")).
+                                $getData->startDate->format("Y-m-d").
                                 ' - '.
-                                ($getData->stopDate->format("Y-m-d") === new DateTime(datetime: 'now')->format('Y-m-d') ? 'Present' : $getData->stopDate->format("Y-m-d"))
+                                ($getData->stopDate->format("Y-m-d") === date("Y-m-d") ? "Present" : $getData->stopDate->format("Y-m-d"))
                             ).'</div>'.
                             '<div app="about-02-company">'.($getData->company).'</div>'.
                             (
@@ -103,7 +103,7 @@
                                 '</div>'
                             ).
                             (
-                                '<ul>'.
+                                '<ul class="ms-3">'.
                                 join(
                                     separator: "",
                                     array: array_map(
@@ -115,7 +115,7 @@
                             ).
                             (
                                 '<div class="d-flex justify-content-center mb-4">'.
-                                '<button onclick="window.location.assign(\'/project?id='.($getData->id).'\')" class="btn btn-lg btn-outline-light w-75">View</button>'.
+                                '<button class="btn btn-lg btn-outline-light w-75" data-bs-toggle="modal" data-bs-target="#project-'.($getData->id).'">View</button>'.
                                 '</div>'
                             ).
                             '</div>'
@@ -123,6 +123,66 @@
                         array: Application_CONTROLLER::GetProject()
                     )
                 );
+        }
+        /**
+         * getting project modal
+         * @return void
+         */
+        public static function GetProjectModal(): void {
+            echo join(
+                separator: "",
+                array: array_map(
+                    callback: fn($getData) => (
+                        '<div class="modal fade" tabindex="-1" id="project-'.($getData->id).'" tabindex="-1" aria-labelledby="project-'.($getData->id).'-label" aria-hidden="true">
+                            <div class="modal-dialog modal-fullscreen">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="project-'.($getData->id).'-label">'.($getData->name).'</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body bg-secondary">
+                                    <div class="row justify-content-center my-3 w-100">
+                                    '.
+                                    join(
+                                        separator: "",
+                                        array: array_map(
+                                            callback: fn($getSVG) => '<img class="col-3 col-lg-1" src="/lib/image/tech-skill/'.($getSVG).'" height="100vh"/>',
+                                            array: $getData->images ?? array()
+                                        )
+                                    ).
+                                    '</div>
+                                    <div class="w-100 p-1">
+                                    '.
+                                    (
+                                        ($getData->flowchart ?? null) !== null
+                                        ? '<img class="p-3" src="/lib/image/project-flowchart/'.($getData->flowchart).'" width="100%"/>'
+                                        : ''
+                                    ).
+                                    '
+                                    </div>
+                                    <h2 class="display-3 w-100 text-center">Description</h2>
+                                    <ul style="width: 97%; margin-left: 2.5%;">
+                                    '.
+                                    join(
+                                        separator: "",
+                                        array: array_map(
+                                            callback: fn($getDescription) => '<li class="fs-1">'.($getDescription).'</li>',
+                                            array: $getData->descriptions ?? array()
+                                        )
+                                    )
+                                    .'
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>'
+                    ),
+                    array: Application_CONTROLLER::GetProject()
+                )
+            );
         }
         /**
          * getting certifications
