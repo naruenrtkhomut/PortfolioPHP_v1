@@ -55,7 +55,7 @@
          */
         public static function GetHeader(): void {
             echo (
-                '<nav class="navbar navbar-expand-lg navbar-dark sticky-top">'.
+                '<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="z-index: 10;">'.
                 '<div class="container-fluid">'.
                 '<a appProp="header-name" class="navbar-brand fs-2" href="/">'.
                 Application_MODEL::HTML_MENU->Value()["name"].

@@ -47,6 +47,7 @@
             Index_VIEW::GetExperienceYear();
             Index_VIEW::GetBriefSkill(type: "programming");
         ?>
+        <div style="height: 50px;"></div>
     </div>
 
     <!-- background image -->

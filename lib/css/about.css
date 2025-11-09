@@ -5,11 +5,20 @@ body {
     color: var(--body-fg-color);
 }
 div[appProp="copy-right"] {
-    position: fixed;
+    position: static;
     right: 10px;
     bottom: 10px;
 }
-
+section[app="about-project-view"] {
+    min-width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: var(--body-bg-color-project);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
 @media only screen and (min-width: 1024px) {
     section[app="about-01"] {
         width: 100%;
@@ -112,6 +121,7 @@ div[appProp="copy-right"] {
         & div {
             & h1[app="about-05-name"] {
                 font-size: 6vw;
+                margin-top: 50px;
             }
         }
     }
@@ -134,6 +144,12 @@ div[appProp="copy-right"] {
         }
         & img {
             height: 3vh;
+        }
+    }
+    section[app="about-05"] {
+        & h1[app="about-05-name"] {
+            font-size: 10vw;
+            margin-top: 30px;
         }
     }
 }
