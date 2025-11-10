@@ -25,18 +25,6 @@ include_once "../src/view/about.php";
 </head>
 
 <body>
-    <section app="about-project-view" id="about-project-view" class="visually-hidden">
-        <div style="overflow: scroll; max-height: 100vh;">
-            <h1 class="w-100 text-center display-2" id="about-project-view-name"></h1>
-            <div class="w-100 row justify-content-center gap-2" id="about-project-view-svg"></div>
-            <h2 class="display-4 text-center mt-3">Flow chart</h2>
-            <div class="w-100 mt-3 border border-1 p-2" id="about-project-view-flowchart"></div>
-            <div class="d-flex mt-2 border border-1 p-1">
-                <button class="btn btn-lg btn-outline-light mt-1 me-3 ms-auto px-2" onclick="document.getElementById('about-project-view').classList.add('visually-hidden');">Close</button>
-            </div>
-        </div>
-    </section>
-
     <!-- application header menu -->
     <?php Layout_VIEW::GetHeader(); ?>
     <section app="about-01">
@@ -78,6 +66,26 @@ include_once "../src/view/about.php";
         <div style="height: 40px;"></div>
     </section>
 
+    <!-- project view modal -->
+    <div class="modal fade" id="project-view-modal" tabindex="-1" aria-labelledby="project-view-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project-view-modal-label"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-secondary">
+                    <div class="w-100 row justify-content-center gap-2" id="about-project-view-svg"></div>
+                    <h2 class="display-4 text-center mt-3">Flow chart</h2>
+                    <div class="w-100 mt-3 border border-1 p-2" id="about-project-view-flowchart"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- copy right -->
     <div appProp="copy-right">© 2025 Naruenat Komoot</div>
 
@@ -90,10 +98,9 @@ include_once "../src/view/about.php";
          * @param {string} flowchart
          */
         const ShowProjectView = (name, images, flowchart) => {
-            document.getElementById('about-project-view').classList.remove('visually-hidden');
-            document.getElementById('about-project-view-name').innerText = name;
+            document.getElementById('project-view-modal-label').innerText = name;
             document.getElementById('about-project-view-svg').innerHTML = "";
-            document.getElementById('about-project-view-flowchart').innerHTML = '';
+            document.getElementById('about-project-view-flowchart').innerHTML = "";
             images.forEach(getImage => {
                 let image = document.createElement('img');
                 image.classList.add("col-1");
@@ -104,8 +111,7 @@ include_once "../src/view/about.php";
                 image.src = `/lib/image/tech-skill/${getImage}`;
                 if (window.screen.width >= 1024) {
                     image.setAttribute('height', '100vh');
-                }
-                else {
+                } else {
                     image.setAttribute('height', '50vh');
                 }
                 image.setAttribute('width', '100%');
@@ -117,6 +123,7 @@ include_once "../src/view/about.php";
                 flowchartImg.src = `/lib/image/project-flowchart/${flowchart}`;
                 document.getElementById('about-project-view-flowchart').appendChild(flowchartImg);
             }
+            $('#project-view-modal').modal('show');
         }
     </script>
 </body>
